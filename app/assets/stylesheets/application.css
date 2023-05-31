@@ -18,11 +18,17 @@
 header {
   height: 50px;
   width: 100%;
-  background-color: aquamarine;
+  background-color: rgb(18, 27, 122);
+  color: white;
+  text-align: right;
+  padding:15px 0;
 }
 
 footer {
   height: 50px;
   width: 100%;
-  background-color: blueviolet;
+  background-color: rgb(18, 27, 122);
+  color: white;
+  text-align: center;
+  padding:15px 0;
 }

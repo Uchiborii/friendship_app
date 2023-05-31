@@ -1,6 +1,11 @@
 <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-  <img class="mb-4" src="/assets/face.png" alt="" width="72" height="57">
-  <h1 class="h3 mb-3 fw-normal">Facebookを使う仲間と繋がりを深められます。</h1>
+  <div class="center-image">
+    <img class="mb-4" src="/assets/face.png" alt="" width="72" height="57">
+  </div>
+
+  <div class="message">
+    <h1 class="h3 mb-3 fw-normal">Facebookを使う仲間と繋がりを深められます。</h1>
+  </div>
 
   <div class="form-floating">
     <%= f.label :email %>
