@@ -1,4 +1,5 @@
 <h1 class="mt-4">投稿一覧</h1>
+<%= link_to "Logout", session_path(current_user.id), method: :delete %>
 
   <table class="table mb-5">
     <thead>
@@ -8,7 +9,7 @@
         <th class="col-2">画像</th>
       </tr>
     </thead>
-  
+
     <tbody>
       <% @pictures.each do |picture| %>
         <tr>
@@ -16,8 +17,8 @@
           <td><%= picture.content %></td>
           <td><%= image_tag picture.image_url(:thumb) if picture.image.present? %></td>
           <td class="pr-0"><%= link_to '詳細', picture, class:"btn btn-outline-primary" %></td>
-          <td class="pr-0 pl-1"><%= link_to '編集', edit_picture_path(picture), class:"btn btn-outline-primary" %></td>
-          <td class="pr-0 pl-1""><%= link_to '削除', picture, class:"btn btn-outline-primary", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="pr-0 pl-1"><%= link_to '編集', edit_picture_path(picture.id), class:"btn btn-outline-primary" %></td>
+　　　　　　<td class="pr-0 pl-1"><%= link_to '削除', picture_path(picture.id), class:"btn btn-outline-primary", method: :delete, data: { confirm: '本当に削除して良いですか?' } %></td>
         </tr>
       <% end %>
     </tbody>

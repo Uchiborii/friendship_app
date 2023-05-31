@@ -6,26 +6,30 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <!-- ここまで -->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <% if logged_in? %>
-    <p class="mr-3"><%= link_to "Profile", user_path(current_user.id), class:"text-white" %></p>
-    <P><%= link_to "Logout", session_path(current_user.id), class:"text-white", method: :delete %></P>
-    <% else %>
-    <p class="mr-3"><%= link_to "Sign up", new_user_path, class:"text-white" %></p>
-    <p><%= link_to "Login", new_session_path, class:"text-white" %></p>
-    <% end %>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    <header>
-      <p>header</p>
-    </header>
+  <body class="w-50 mx-auto">
+      <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container-fluid">
+          <div class="pt-3">
+            <div class="d-flex flex-row">
+              <% if logged_in? %>
+                <p class="mr-3"><%= link_to "Profile", user_path(current_user.id), class:"text-white" %></p>
+                <P><%= link_to "Logout", session_path(current_user.id), method: :delete, class:"text-white" %></P>
+                <%= button_to "Log out3 iketayatu", session_path(current_user.id), method: :delete %>
+              <% else %>
+                <p class="mr-3"><%= link_to "Sign up", new_user_path, class:"text-white" %></p>
+                <p><%= link_to "Login", new_session_path, class:"text-white" %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </nav>
+
     <%= yield %>
+
     <footer>
       <p>@Uchibori.com</p>
     </footer>
