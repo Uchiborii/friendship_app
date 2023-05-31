@@ -11,16 +11,16 @@
     </div>
   <% end %>
 
- <div class="field mb-5">
+　<div class="field mb-5">
     <p class="mb-1"><%= form.label :画像： %></p>
-    <%= image_tag(picture.image.url) if picture.image && picture.image.url %>
-    <%= form.file_field :image %>
-    <%= form.hidden_field :image_cache %>
+      <%= image_tag(picture.image.url) if picture.image && picture.image.url %>
+      <%= form.file_field :image %>
+      <%= form.hidden_field :image_cache %>
   </div>
 
   <div class="field mb-4">
     <p class="mb-1"><%= form.label :コメント： %></p>
-    <%= form.text_area :content, class:"w-100" %>
+      <%= form.text_area :content, class:"w-100" %>
   </div>
 
   <div class="actions mt-3">

@@ -11,6 +11,7 @@
     <%= f.label :email %>
     <%= f.email_field :email %>
   </div>
+
   <div class="form-floating">
     <%= f.label :password %>
     <%= f.password_field :password %>
@@ -21,5 +22,6 @@
       <input type="checkbox" value="remember-me"> Remember me
     </label>
   </div>
+
   <%= f.submit "Log in", class: "w-100 btn btn-lg btn-primary" %>
 <% end %>
