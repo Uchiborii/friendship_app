@@ -1,0 +1,28 @@
+<h1 class="mt-5 mb-5">ユーザー登録</h1>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prevented this user from being saved:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with(model: @user, local: true) do |f| %>
+  <p class="mb-1"><%= f.label :name %></p>
+  <p><%= f.text_field :name, class:"w-75" %></p>
+
+  <p class="mb-1"><%= f.label :email %></p>
+  <p><%= f.email_field :email, class:"w-75" %></p>
+
+  <p class="mb-1"><%= f.label :password %></p>
+  <p><%= f.password_field :password, class:"w-75" %></p>
+
+  <p class="mb-1"><%= f.label :password_confirmation %></p>
+  <p><%= f.password_field :password_confirmation, class:"w-75" %></p>
+
+  <p><%= f.submit "登録する", class:"btn btn-primary" %></p>
+<% end %>
