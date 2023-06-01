@@ -1,22 +1,18 @@
 <h1 class="mt-5 mb-3">確認画面</h1>
-  <%= form_with(model: @picture, url: pictures_path, local: true) do |form| %>
+<%= form_with(model: @picture, url: pictures_path, local: true) do |form| %>
 
-    <p>
-      <strong>コメント:</strong>
-        <%= form.hidden_field :content %>
-        <%= @picture.content %>
-    </p>
+  <p>
+    <strong>コメント:</strong>
+      <%= form.hidden_field :content %>
+      <%= @picture.content %>
+  </p>
 
-    <p>
-      <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %></p>
-      <%= form.hidden_field :image_cache %>
-    <p>
-      <%= form.submit "投稿する", class:"btn btn-primary mb-4" %>
-    </p>
-
-  <% end %>
-
-  <%= form_with(model:@picture, url:new_picture_path, local:true, method:"get") do |form| %>
+  <p>
+    <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %></p>
     <%= form.hidden_field :image_cache %>
-    <%= link_to '一覧へ戻る', pictures_path %>
-  <% end %>
+  <p>
+    <%= form.submit "投稿する", class:"btn btn-primary mb-4" %>
+  </p>
+
+<% end %>
+<%= link_to '一覧へ戻る', pictures_path %>

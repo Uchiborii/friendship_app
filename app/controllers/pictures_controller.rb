@@ -23,18 +23,13 @@ class PicturesController < ApplicationController
     @picture = Picture.new(picture_params)
     @picture = current_user.pictures.build(picture_params)
 
-    respond_to do |format|
-      if params[:back]
-        render :new
-
+    if params[:back]
+      render :new
+    else
+      if @picture.save
+        redirect_to pictures_path
       else
-        if @picture.save
-          format.json { render :show, status: :created, location: @picture }
-          format.any  { render :new}
-        else
-          format.json { render json: @picture.errors, status: :unprocessable_entity }
-          format.any  { render  :new}
-        end
+        render :new
       end
     end
   end
